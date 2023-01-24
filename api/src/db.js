@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
 );
 
 const basename = path.basename(__filename);
-console.log(__dirname);
+
 const modelDefiners = [];
 
 fs.readdirSync(path.join(__dirname + "\\models"), "utf-8")
@@ -23,6 +23,12 @@ fs.readdirSync(path.join(__dirname + "\\models"), "utf-8")
   });
 
 modelDefiners.forEach((model) => model(sequelize));
+
+const { Type } = sequelize.models;
+const { Model } = sequelize.models;
+
+Type.hasMany(Model);
+Model.belongsTo(Type);
 
 module.exports = {
   ...sequelize.models,

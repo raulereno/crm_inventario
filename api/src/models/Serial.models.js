@@ -3,10 +3,12 @@ const { DataTypes } = require("sequelize");
 const Serial = (sequelize) => {
   sequelize.define("Serial", {
     id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.UUID,
+      allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      defaultValue: DataTypes.UUIDV4,
     },
+    //TODO: modelo y tipo en otra tabla en otra tabla o a traves de un enum
   });
 };
 
