@@ -4,7 +4,8 @@ const { PORT } = process.env;
 
 sequelize.sync({ force: true }).then(() => {
   server.listen(PORT, () => {
-    // Serial.create({ status: "unistalled" });
+    Serial.create({ status: "unistalled" });
+    console.log("hola");
     console.log(`Servidor escuchando en puerto ${PORT}`);
   });
 });
