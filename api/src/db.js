@@ -26,9 +26,13 @@ modelDefiners.forEach((model) => model(sequelize));
 
 const { Type } = sequelize.models;
 const { Model } = sequelize.models;
+const { Serial } = sequelize.models;
 
 Type.hasMany(Model);
 Model.belongsTo(Type);
+
+Model.hasMany(Serial);
+Serial.belongsTo(Model);
 
 module.exports = {
   ...sequelize.models,
